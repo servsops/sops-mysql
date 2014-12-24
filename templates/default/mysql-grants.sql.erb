@@ -1,0 +1,7 @@
+
+GRANT ALL ON *.* TO 'root'@'%' IDENTIFIED BY '<%= node["mysql"]["server_root_password"] %>' WITH GRANT OPTION;
+DELETE FROM mysql.user WHERE User='';
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('<%= node["mysql"]["server_root_password"] %>');
+SET PASSWORD FOR 'root'@'127.0.0.1' = PASSWORD('<%= node["mysql"]["server_root_password"] %>');

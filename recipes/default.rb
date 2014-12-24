@@ -6,3 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+include_recipe "mysql::_server"
+
+include_recipe "mysql::_client"
